@@ -1,28 +1,30 @@
-# Build with AI: AI-Powered Dashboards with Streamlit
-This is the repository for the LinkedIn Learning course `Build with AI: AI-Powered Dashboards with Streamlit`. The full course is available from [LinkedIn Learning][lil-course-url].
+# Name Matching Streamlit App
 
-![course-name-alt-text][lil-thumbnail-url] 
+Minimal Streamlit app for fuzzy and phonetic name matching.
 
-## Course Description
+Run locally:
 
-In this hands-on course, data science consultant Megan Silvey guides you through how to use Streamlit to build web applications. In particular, learners will build an AI-powered coding assistant in Streamlit that helps generate, refine, and maintain interactive data dashboards using Python and OpenAI’s free‑tier API. Learners will start with building their Streamlit chat-based AI assistant. Learners will then learn how to load, prepare, and analyze their data in Streamlit. Then, learners will build dynamic dashboards with various visualizations and filters through conversational interactions with an embedded AI assistant. Finally, learners will learn how to test, maintain, and deploy their fully functional AI-powered dashboard on Streamlit Community Cloud.
+```bash
+python -m pip install -r name_matching_app/requirements.txt
+streamlit run name_matching_app/app.py
+```
 
-# File Structure
-There is one branch for this course containing four chapter folders corresponding to the four chapters in the course. Inside these chapter folders are the coding exercise files. The naming convention for the exercise files is CHAPTER#_MOVIE#. As an example, the branch named 02_03 corresponds to the second chapter and the third video in that chapter.
+### Usage
+1. Choose mode (single→list or list→list) in the sidebar.
+2. Pick a matching algorithm and optional phonetic method.
+3. Adjust Top K results and minimum score threshold.
+4. Upload one or two CSV files (or use the built‑in sample).
+5. Enter a name to query (single mode) or click **Run pairwise**.
+6. Preview results and download as CSV if desired.
 
-All coding exercise files will have a beginning and an end state, for example '02_03e' would be the ending file for the third movie in the second chapter. These are marked with the letters b for "beginning" and e for "end". The b file contains the code as it is at the beginning of the movie. The e file contains the code as it is at the end of the movie.
+### Chat Assistant
+The sidebar includes an AI chat assistant powered by OpenAI. To enable it, place your OpenAI API key in a file named `openai_key.txt` at the project root (same folder as `app.py`). Once the key is present the assistant will appear and can answer questions about name matching techniques, algorithms, or general tips.
 
-## Instructor
+> Tip: If no key is detected the sidebar will show a warning explaining how to add one.
 
-Megan Silvey
-
-Data Scientist
-
-Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/megan-silvey?u=104).
-
-
-[0]: # (Replace these placeholder URLs with actual course URLs)
-
-[lil-course-url]: https://www.linkedin.com/learning/build-with-ai-ai-powered-dashboards-with-streamlit
-[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQHw7FANyHbtMg/learning-public-crop_675_1200/B4EZkqZgSLGYAY-/0/1757352953765?e=2147483647&v=beta&t=uy__0W_KZOrBVgP3zg4ys_eMZuO3UGzB5MaFnnonoc0
-
+Features:
+- Sample names included
+- Fuzzy and phonetic scoring options
+- Top‑K and threshold filtering
+- Exportable CSV output
+- Lightweight and easy to extend
